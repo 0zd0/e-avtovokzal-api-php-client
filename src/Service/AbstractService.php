@@ -2,8 +2,6 @@
 
 namespace Onepix\EAvtovokzalApiClient\Service;
 
-use Onepix\EAvtovokzalApiClient\Constants;
-use Onepix\EAvtovokzalApiClient\Enum\RouteEnum;
 use Onepix\EAvtovokzalApiClient\HttpClient;
 
 abstract class AbstractService
@@ -22,12 +20,5 @@ abstract class AbstractService
     public function getClient(): HttpClient
     {
         return $this->client;
-    }
-
-    public static function buildRoute(
-        RouteEnum $route,
-        string $version = Constants::VERSION_API
-    ): string {
-        return '/v' . $version . '/' . $route->value;
     }
 }

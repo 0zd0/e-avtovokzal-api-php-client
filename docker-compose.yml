@@ -6,6 +6,7 @@ services:
     container_name: php8.1
     volumes:
       - .:/var/www/html
+      - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     ports:
       - "9000:9000"
     environment:

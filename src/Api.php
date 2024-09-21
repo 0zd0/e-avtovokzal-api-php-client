@@ -2,27 +2,41 @@
 
 namespace Onepix\EAvtovokzalApiClient;
 
-use GuzzleHttp\Client;
+use Onepix\EAvtovokzalApiClient\Service\EchoService;
+use SoapFault;
 
 class Api
 {
     protected HttpClient $client;
-    protected string $apiKey;
+    protected string $login;
+    protected string $password;
 
     public function __construct(
-        string $apiKey
+        string $login,
+        string $password,
     ) {
-        $this->apiKey = $apiKey;
+        $this->login = $login;
+        $this->password = $password;
     }
 
+    /**
+     * @throws SoapFault
+     */
     public function getClient(): HttpClient
     {
         return new HttpClient(
-            $this->apiKey,
-            new Client([
-                'base_uri' => Constants::PROTOCOL . Constants::BASE_URL_API,
-                'timeout' => 20
-            ])
+            $this->login,
+            $this->password,
+            Constants::PROTOCOL . Constants::BASE_URL_API
         );
+    }
+
+    /**
+     * @return EchoService
+     * @throws SoapFault
+     */
+    public function echo(): EchoService
+    {
+        return new EchoService($this->getClient());
     }
 }

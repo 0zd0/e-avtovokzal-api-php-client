@@ -5,15 +5,18 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Onepix\\EAvtovokzalApiClient\\": "src/"
+            "Onepix\\EAvtovokzalApiClient\\": "src/",
+            "Onepix\\EAvtovokzalApiClient\\Test\\": "tests/"
         }
     },
     "require": {
         "ext-json": "*",
         "php": "^8.1",
-        "guzzlehttp/guzzle": "^7.0.0"
+        "ext-soap": "*"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.10.2"
+        "squizlabs/php_codesniffer": "^3.10.2",
+        "phpunit/phpunit": "^10.5.34",
+        "yosymfony/toml": "^v1.0.4"
     }
 }
