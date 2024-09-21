@@ -92,10 +92,12 @@ class SeatModel extends AbstractModel
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             self::CODE_KEY => $this->getCode(),
             self::NAME_KEY => $this->getName(),
             self::TYPE_KEY => $this->getType(),
-        ];
+        ], function ($key, $value) {
+            return $value !== null;
+        });
     }
 }

@@ -348,7 +348,8 @@ class OrderModel extends AbstractModel
             self::CREATED_KEY        => $this->getCreated()?->format(\DateTimeInterface::ATOM),
             self::EXPIRED_KEY        => $this->getExpired()?->format(\DateTimeInterface::ATOM),
             self::FINISHED_KEY       => $this->getFinished()?->format(\DateTimeInterface::ATOM),
-            self::TICKETS_KEY        => $this->getTickets() ? array_map(fn($ticket) => $ticket->toArray(), $this->getTickets()) : null
+            self::TICKETS_KEY        =>
+                $this->getTickets() ? array_map(fn($ticket) => $ticket->toArray(), $this->getTickets()) : null
         ], function ($key, $value) {
             return $value !== null;
         });

@@ -75,9 +75,11 @@ class RaceTypeModel extends AbstractModel
      */
     public function toArray(): array
     {
-        return [
-            self::ID_KEY => $this->getId(),
+        return array_filter([
+            self::ID_KEY   => $this->getId(),
             self::NAME_KEY => $this->getName()->value,
-        ];
+        ], function ($key, $value) {
+            return $value !== null;
+        });
     }
 }

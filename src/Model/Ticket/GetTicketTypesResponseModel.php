@@ -2,9 +2,9 @@
 
 namespace Onepix\EAvtovokzalApiClient\Model\Ticket;
 
-use Onepix\EAvtovokzalApiClient\Model\AbstractReturnCollectionModel;
+use Onepix\EAvtovokzalApiClient\Model\AbstractReturnModel;
 
-class GetTicketTypesResponseModel extends AbstractReturnCollectionModel
+class GetTicketTypesResponseModel extends AbstractReturnModel
 {
     public const RETURN_MODEL = TicketTypeModel::class;
 

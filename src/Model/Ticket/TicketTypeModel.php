@@ -140,12 +140,14 @@ class TicketTypeModel extends AbstractModel
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             self::CODE_KEY         => $this->getCode(),
             self::NAME_KEY         => $this->getName(),
             self::PRICE_KEY        => $this->getPrice(),
             self::TICKET_CLASS_KEY => $this->getTicketClass(),
             self::BENEFIT_CODE_KEY => $this->getBenefitCode(),
-        ];
+        ], function ($key, $value) {
+            return $value !== null;
+        });
     }
 }
