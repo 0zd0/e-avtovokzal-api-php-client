@@ -9,4 +9,5 @@ enum ClientMethodEnum: string
     case GET_RACE = 'getRace';
     case GET_RACE_SEATS = 'getRaceSeats';
     case GET_TICKET_TYPES = 'getTicketTypes';
+    case RETURN_TICKET = 'returnTicket';
 }

@@ -2,10 +2,10 @@
 
 namespace Onepix\EAvtovokzalApiClient\Model\Race;
 
-use Onepix\EAvtovokzalApiClient\Model\AbstractReturnCollectionModel;
+use Onepix\EAvtovokzalApiClient\Model\AbstractReturnModel;
 use Onepix\EAvtovokzalApiClient\Model\SeatModel;
 
-class GetRaceSeatsResponseModel extends AbstractReturnCollectionModel
+class GetRaceSeatsResponseModel extends AbstractReturnModel
 {
     public const RETURN_MODEL = SeatModel::class;
 
