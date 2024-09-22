@@ -3,9 +3,12 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Order;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\RequestModelTrait;
 
 class GetOrderParametersModel extends AbstractModel
 {
+    use RequestModelTrait;
+
     public const ORDER_ID_KEY = 'orderId';
 
     protected int $orderId;

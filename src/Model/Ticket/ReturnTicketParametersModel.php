@@ -3,9 +3,12 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Ticket;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\RequestModelTrait;
 
 class ReturnTicketParametersModel extends AbstractModel
 {
+    use RequestModelTrait;
+
     public const TICKET_ID_KEY = 'ticketId';
 
     protected int $ticketId;

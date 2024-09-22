@@ -3,9 +3,12 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Race;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\RequestModelTrait;
 
 class GetRaceParametersModel extends AbstractModel
 {
+    use RequestModelTrait;
+
     public const UID = 'uid';
 
     protected string $uid;

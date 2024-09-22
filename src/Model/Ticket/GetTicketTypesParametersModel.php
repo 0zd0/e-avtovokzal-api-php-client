@@ -3,9 +3,12 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Ticket;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\RequestModelTrait;
 
 class GetTicketTypesParametersModel extends AbstractModel
 {
+    use RequestModelTrait;
+
     public const UID_KEY = 'uid';
 
     protected string $uid;
