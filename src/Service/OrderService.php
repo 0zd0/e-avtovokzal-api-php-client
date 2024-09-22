@@ -6,6 +6,8 @@ use Exception;
 use Onepix\EAvtovokzalApiClient\Enum\ClientMethodEnum;
 use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderResponseModel;
+use Onepix\EAvtovokzalApiClient\Model\Order\CancelOrderParametersModel;
+use Onepix\EAvtovokzalApiClient\Model\Order\CancelOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\ConfirmOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\ConfirmOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderParametersModel;
@@ -68,6 +70,25 @@ class OrderService extends AbstractService
             $data->toArray()
         );
         $return   = ConfirmOrderResponseModel::fromArray($response);
+
+        return $return->getSingleReturn();
+    }
+
+    /**
+     * @param CancelOrderParametersModel $data
+     *
+     * @return OrderModel|null
+     * @throws SoapFault
+     * @throws Exception
+     */
+    public function cancelOrder(
+        CancelOrderParametersModel $data
+    ): ?OrderModel {
+        $response = $this->getClient()->call(
+            ClientMethodEnum::CANCEL_ORDER,
+            $data->toArray()
+        );
+        $return   = CancelOrderResponseModel::fromArray($response);
 
         return $return->getSingleReturn();
     }
