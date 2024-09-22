@@ -12,4 +12,5 @@ enum ClientMethodEnum: string
     case RETURN_TICKET = 'returnTicket';
     case GET_ORDER = 'getOrder';
     case BOOK_ORDER = 'bookOrder';
+    case CONFIRM_ORDER = 'confirmOrder';
 }
