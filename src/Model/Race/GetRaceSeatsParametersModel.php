@@ -7,9 +7,9 @@ use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
 class GetRaceSeatsParametersModel extends AbstractModel
 {
     public const UID_KEY = 'uid';
-    
+
     protected string $uid;
-    
+
     /**
      * @return string
      */
@@ -17,7 +17,7 @@ class GetRaceSeatsParametersModel extends AbstractModel
     {
         return $this->uid;
     }
-    
+
     /**
      * @param string $uid
      *
@@ -26,19 +26,19 @@ class GetRaceSeatsParametersModel extends AbstractModel
     public function setUid(string $uid): self
     {
         $this->uid = $uid;
-        
+
         return $this;
     }
-    
+
     /**
      * @inheritDoc
      */
     public static function fromArray(array $response): static
     {
         $model = new static();
-        
+
         $model->setUid($response[self::UID_KEY]);
-        
+
         return $model;
     }
 

@@ -4,6 +4,8 @@ namespace Onepix\EAvtovokzalApiClient\Service;
 
 use Exception;
 use Onepix\EAvtovokzalApiClient\Enum\ClientMethodEnum;
+use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderParametersModel;
+use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\OrderModel;
@@ -18,7 +20,7 @@ class OrderService extends AbstractService
      * @throws SoapFault
      * @throws Exception
      */
-    public function getRace(
+    public function getOrder(
         GetOrderParametersModel $data
     ): ?OrderModel {
         $response = $this->getClient()->call(
@@ -26,6 +28,25 @@ class OrderService extends AbstractService
             $data->toArray()
         );
         $return   = GetOrderResponseModel::fromArray($response);
+
+        return $return->getSingleReturn();
+    }
+
+    /**
+     * @param BookOrderParametersModel $data
+     *
+     * @return OrderModel|null
+     * @throws SoapFault
+     * @throws Exception
+     */
+    public function bookOrder(
+        BookOrderParametersModel $data
+    ): ?OrderModel {
+        $response = $this->getClient()->call(
+            ClientMethodEnum::BOOK_ORDER,
+            $data->toArray()
+        );
+        $return   = BookOrderResponseModel::fromArray($response);
 
         return $return->getSingleReturn();
     }

@@ -3,6 +3,7 @@
 namespace Onepix\EAvtovokzalApiClient\Model;
 
 use DateTime;
+use DateTimeInterface;
 use Exception;
 use Onepix\EAvtovokzalApiClient\Enum\StatusEnum;
 
@@ -345,9 +346,9 @@ class OrderModel extends AbstractModel
             self::PAYMENT_METHOD_KEY => $this->getPaymentMethod(),
             self::REPAYMENT_KEY      => $this->getRepayment(),
             self::STATUS_KEY         => $this->getStatus(),
-            self::CREATED_KEY        => $this->getCreated()?->format(\DateTimeInterface::ATOM),
-            self::EXPIRED_KEY        => $this->getExpired()?->format(\DateTimeInterface::ATOM),
-            self::FINISHED_KEY       => $this->getFinished()?->format(\DateTimeInterface::ATOM),
+            self::CREATED_KEY        => $this->getCreated()?->format(DateTimeInterface::ATOM),
+            self::EXPIRED_KEY        => $this->getExpired()?->format(DateTimeInterface::ATOM),
+            self::FINISHED_KEY       => $this->getFinished()?->format(DateTimeInterface::ATOM),
             self::TICKETS_KEY        =>
                 $this->getTickets() ? array_map(fn($ticket) => $ticket->toArray(), $this->getTickets()) : null
         ], function ($key, $value) {
