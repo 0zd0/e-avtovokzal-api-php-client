@@ -10,7 +10,6 @@ use SoapFault;
 
 class Api
 {
-    protected HttpClient $client;
     protected string $login;
     protected string $password;
 

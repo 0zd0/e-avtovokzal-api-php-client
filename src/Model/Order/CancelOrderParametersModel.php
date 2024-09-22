@@ -7,9 +7,9 @@ use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
 class CancelOrderParametersModel extends AbstractModel
 {
     public const ORDER_ID_KEY = 'orderId';
-    
+
     protected int $orderId;
-    
+
     /**
      * @return int
      */
@@ -17,7 +17,7 @@ class CancelOrderParametersModel extends AbstractModel
     {
         return $this->orderId;
     }
-    
+
     /**
      * @param int $orderId
      *
@@ -26,20 +26,20 @@ class CancelOrderParametersModel extends AbstractModel
     public function setOrderId(int $orderId): self
     {
         $this->orderId = $orderId;
-        
+
         return $this;
     }
-    
+
     /**
      * @inheritDoc
      */
     public static function fromArray(array $response): static
     {
         $model = new static();
-        
+
         $model
             ->setOrderId($response[self::ORDER_ID_KEY]);
-        
+
         return $model;
     }
 
