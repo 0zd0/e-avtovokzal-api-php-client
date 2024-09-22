@@ -3,6 +3,7 @@
 namespace Onepix\EAvtovokzalApiClient;
 
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
+use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
 use SoapFault;
@@ -17,7 +18,7 @@ class Api
         string $login,
         string $password,
     ) {
-        $this->login = $login;
+        $this->login    = $login;
         $this->password = $password;
     }
 
@@ -58,5 +59,14 @@ class Api
     public function ticket(): TicketService
     {
         return new TicketService($this->getClient());
+    }
+
+    /**
+     * @return OrderService
+     * @throws SoapFault
+     */
+    public function order(): OrderService
+    {
+        return new OrderService($this->getClient());
     }
 }
