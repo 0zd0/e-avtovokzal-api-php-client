@@ -10,7 +10,7 @@ class EchoServiceTest extends TestCase
     public function testEchoString()
     {
         $request  = (new EchoSendParametersModel())->setMessage('bred');
-        $response = $this->client->echo()->send($request);
+        $response = $this->api->echo()->send($request);
 
         $this->assertSame($request->getMessage(), $response->getReturn());
     }
