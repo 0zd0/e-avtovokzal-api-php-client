@@ -3,7 +3,6 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Order;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractReturnModel;
-use Onepix\EAvtovokzalApiClient\Model\OrderModel;
 
 class GetOrderResponseModel extends AbstractReturnModel
 {

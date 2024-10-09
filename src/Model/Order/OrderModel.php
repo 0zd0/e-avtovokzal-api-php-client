@@ -1,11 +1,15 @@
 <?php
 
-namespace Onepix\EAvtovokzalApiClient\Model;
+namespace Onepix\EAvtovokzalApiClient\Model\Order;
 
 use DateTime;
 use DateTimeInterface;
 use Exception;
-use Onepix\EAvtovokzalApiClient\Enum\StatusEnum;
+use Onepix\EAvtovokzalApiClient\Enum\OrderStatusEnum;
+use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\CompanyModel;
+use Onepix\EAvtovokzalApiClient\Model\Ticket\TicketModel;
+use Onepix\EAvtovokzalApiClient\Model\UserModel;
 
 class OrderModel extends AbstractModel
 {
@@ -31,7 +35,7 @@ class OrderModel extends AbstractModel
     protected ?float $total = null;
     protected ?string $paymentMethod = null;
     protected ?float $repayment = null;
-    protected ?StatusEnum $status = null;
+    protected ?OrderStatusEnum $status = null;
     protected ?DateTime $created = null;
     protected ?DateTime $expired = null;
     protected ?DateTime $finished = null;
@@ -58,9 +62,9 @@ class OrderModel extends AbstractModel
     }
 
     /**
-     * @return StatusEnum|null
+     * @return OrderStatusEnum|null
      */
-    public function getStatus(): ?StatusEnum
+    public function getStatus(): ?OrderStatusEnum
     {
         return $this->status;
     }
@@ -170,11 +174,11 @@ class OrderModel extends AbstractModel
     }
 
     /**
-     * @param StatusEnum|null $status
+     * @param OrderStatusEnum|null $status
      *
      * @return self
      */
-    public function setStatus(?StatusEnum $status): self
+    public function setStatus(?OrderStatusEnum $status): self
     {
         $this->status = $status;
 
@@ -310,18 +314,18 @@ class OrderModel extends AbstractModel
         $model = new static();
 
         $model
-            ->setUid($response[self::UID_KEY])
-            ->setId($response[self::ID_KEY])
-            ->setUser($response[self::USER_KEY] ? UserModel::fromArray($response[self::USER_KEY]) : null)
-            ->setAgent($response[self::AGENT_KEY] ? CompanyModel::fromArray($response[self::AGENT_KEY]) : null)
-            ->setReserveCode($response[self::RESERVE_CODE_KEY])
-            ->setTotal($response[self::TOTAL_KEY])
-            ->setPaymentMethod($response[self::PAYMENT_METHOD_KEY])
-            ->setRepayment($response[self::REPAYMENT_KEY])
-            ->setStatus($response[self::STATUS_KEY])
-            ->setCreated($response[self::CREATED_KEY] ? new DateTime($response[self::CREATED_KEY]) : null)
-            ->setExpired($response[self::EXPIRED_KEY] ? new DateTime($response[self::EXPIRED_KEY]) : null)
-            ->setFinished($response[self::FINISHED_KEY] ? new DateTime($response[self::FINISHED_KEY]) : null);
+            ->setUid($response[self::UID_KEY] ?? null)
+            ->setId($response[self::ID_KEY] ?? null)
+            ->setUser(isset($response[self::USER_KEY]) ? UserModel::fromArray($response[self::USER_KEY]) : null)
+            ->setAgent(isset($response[self::AGENT_KEY]) ? CompanyModel::fromArray($response[self::AGENT_KEY]) : null)
+            ->setReserveCode($response[self::RESERVE_CODE_KEY] ?? null)
+            ->setTotal($response[self::TOTAL_KEY] ?? null)
+            ->setPaymentMethod($response[self::PAYMENT_METHOD_KEY] ?? null)
+            ->setRepayment($response[self::REPAYMENT_KEY] ?? null)
+            ->setStatus(OrderStatusEnum::tryFrom($response[self::STATUS_KEY] ?? ''))
+            ->setCreated(isset($response[self::CREATED_KEY]) ? new DateTime($response[self::CREATED_KEY]) : null)
+            ->setExpired(isset($response[self::EXPIRED_KEY]) ? new DateTime($response[self::EXPIRED_KEY]) : null)
+            ->setFinished(isset($response[self::FINISHED_KEY]) ? new DateTime($response[self::FINISHED_KEY]) : null);
 
         if (isset($response[self::TICKETS_KEY])) {
             $tickets = array_map([TicketModel::class, 'fromArray'], $response[self::TICKETS_KEY]);
@@ -345,13 +349,13 @@ class OrderModel extends AbstractModel
             self::TOTAL_KEY          => $this->getTotal(),
             self::PAYMENT_METHOD_KEY => $this->getPaymentMethod(),
             self::REPAYMENT_KEY      => $this->getRepayment(),
-            self::STATUS_KEY         => $this->getStatus(),
+            self::STATUS_KEY         => $this->getStatus()?->value,
             self::CREATED_KEY        => $this->getCreated()?->format(DateTimeInterface::ATOM),
             self::EXPIRED_KEY        => $this->getExpired()?->format(DateTimeInterface::ATOM),
             self::FINISHED_KEY       => $this->getFinished()?->format(DateTimeInterface::ATOM),
             self::TICKETS_KEY        =>
                 $this->getTickets() ? array_map(fn($ticket) => $ticket->toArray(), $this->getTickets()) : null
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

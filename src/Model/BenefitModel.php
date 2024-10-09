@@ -120,7 +120,7 @@ class BenefitModel extends AbstractModel
             self::DOC_NUM_KEY    => $this->getDocNum(),
             self::DOC_SERIES_KEY => $this->getDocSeries(),
             self::SCHOOL_KEY     => $this->getSchool(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

@@ -5,7 +5,7 @@ namespace Onepix\EAvtovokzalApiClient\Test\Util;
 use Onepix\EAvtovokzalApiClient\Api;
 use Onepix\EAvtovokzalApiClient\Constants;
 use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
-use Onepix\EAvtovokzalApiClient\HttpClient;
+use Onepix\EAvtovokzalApiClient\Client;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use SoapClient;
@@ -25,7 +25,7 @@ trait HelperTrait
     protected Api|MockObject $apiMock;
     protected SoapClient|MockObject $soapClientMock;
     protected SoapClientFactory|MockObject $soapClientFactoryMock;
-    protected HttpClient|MockObject $httpClientMock;
+    protected Client|MockObject $httpClientMock;
 
     /**
      * @throws Exception
@@ -41,7 +41,7 @@ trait HelperTrait
             ->method('create')
             ->willReturn($this->soapClientMock);
 
-        $this->httpClientMock = new HttpClient(
+        $this->httpClientMock = new Client(
             $this->devConfig['api']['login'],
             $this->devConfig['api']['password'],
             Constants::PROTOCOL . Constants::BASE_URL_API,

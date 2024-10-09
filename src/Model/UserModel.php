@@ -56,7 +56,7 @@ class UserModel extends AbstractModel
 
         $model
             ->setId($response[self::ID_KEY] ?? null)
-            ->setUsername($response[self::USERNAME_KEY ?? null]);
+            ->setUsername($response[self::USERNAME_KEY] ?? null);
 
         return $model;
     }
@@ -66,7 +66,7 @@ class UserModel extends AbstractModel
         return array_filter([
             self::ID_KEY => $this->getId(),
             self::USERNAME_KEY => $this->getUsername(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

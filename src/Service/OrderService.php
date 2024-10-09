@@ -12,7 +12,7 @@ use Onepix\EAvtovokzalApiClient\Model\Order\ConfirmOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\ConfirmOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderResponseModel;
-use Onepix\EAvtovokzalApiClient\Model\OrderModel;
+use Onepix\EAvtovokzalApiClient\Model\Order\OrderModel;
 use SoapFault;
 
 class OrderService extends AbstractService

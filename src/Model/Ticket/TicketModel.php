@@ -1,12 +1,14 @@
 <?php
 
-namespace Onepix\EAvtovokzalApiClient\Model;
+namespace Onepix\EAvtovokzalApiClient\Model\Ticket;
 
 use DateTime;
 use DateTimeInterface;
 use Exception;
 use Onepix\EAvtovokzalApiClient\Enum\TicketClassEnum;
 use Onepix\EAvtovokzalApiClient\Enum\TicketStatusEnum;
+use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Model\BenefitModel;
 
 class TicketModel extends AbstractModel
 {
@@ -1170,7 +1172,7 @@ class TicketModel extends AbstractModel
             ->setTicketCode($response[self::TICKET_CODE_KEY] ?? null)
             ->setTicketNum($response[self::TICKET_NUM_KEY] ?? null)
             ->setTicketSeries($response[self::TICKET_SERIES_KEY] ?? null)
-            ->setTicketClass($response[self::TICKET_CLASS_KEY] ?? null)
+            ->setTicketClass(TicketClassEnum::tryFrom($response[self::TICKET_CLASS_KEY] ?? ''))
             ->setTicketTypeCode($response[self::TICKET_TYPE_CODE_KEY] ?? null)
             ->setTicketType($response[self::TICKET_TYPE_KEY] ?? null)
             ->setRaceUid($response[self::RACE_UID_KEY] ?? null)
@@ -1178,11 +1180,13 @@ class TicketModel extends AbstractModel
             ->setRaceName($response[self::RACE_NAME_KEY] ?? null)
             ->setRaceClassId($response[self::RACE_CLASS_ID_KEY] ?? null)
             ->setDispatchDate(
-                $response[self::DISPATCH_DATE_KEY] ? new DateTime($response[self::DISPATCH_DATE_KEY]) : null
+                isset($response[self::DISPATCH_DATE_KEY]) ? new DateTime($response[self::DISPATCH_DATE_KEY]) : null
             )
             ->setDispatchStation($response[self::DISPATCH_STATION_KEY] ?? null)
             ->setDispatchAddress($response[self::DISPATCH_ADDRESS_KEY] ?? null)
-            ->setArrivalDate($response[self::ARRIVAL_DATE_KEY] ?? null)
+            ->setArrivalDate(
+                isset($response[self::ARRIVAL_DATE_KEY]) ? new DateTime($response[self::ARRIVAL_DATE_KEY]) : null
+            )
             ->setArrivalStation($response[self::ARRIVAL_STATION_KEY] ?? null)
             ->setArrivalAddress($response[self::ARRIVAL_ADDRESS_KEY] ?? null)
             ->setSeat($response[self::SEAT_KEY] ?? null)
@@ -1197,7 +1201,7 @@ class TicketModel extends AbstractModel
             ->setDocNum($response[self::DOC_NUM_KEY] ?? null)
             ->setCitizenship($response[self::CITIZENSHIP_KEY] ?? null)
             ->setGender($response[self::GENDER_KEY] ?? null)
-            ->setBirthday($response[self::BIRTHDAY_KEY] ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
+            ->setBirthday(isset($response[self::BIRTHDAY_KEY]) ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
             ->setPhone($response[self::PHONE_KEY] ?? null)
             ->setEmail($response[self::EMAIL_KEY] ?? null)
             ->setSupplierCurrencyCode($response[self::SUPPLIER_CURRENCY_CODE_KEY] ?? null)
@@ -1215,9 +1219,11 @@ class TicketModel extends AbstractModel
             ->setCarrierInn($response[self::CARRIER_INN_KEY] ?? null)
             ->setCarrierPhone($response[self::CARRIER_PHONE_KEY] ?? null)
             ->setBarcode($response[self::BARCODE_KEY] ?? null)
-            ->setStatus($response[self::STATUS_KEY] ?? null)
-            ->setReturned($response[self::RETURNED_KEY] ? new DateTime($response[self::RETURNED_KEY]) : null)
-            ->setBenefit($response[self::BENEFIT_KEY] ? BenefitModel::fromArray($response[self::BENEFIT_KEY]) : null)
+            ->setStatus(TicketStatusEnum::tryFrom($response[self::STATUS_KEY] ?? ''))
+            ->setReturned(isset($response[self::RETURNED_KEY]) ? new DateTime($response[self::RETURNED_KEY]) : null)
+            ->setBenefit(
+                isset($response[self::BENEFIT_KEY]) ? BenefitModel::fromArray($response[self::BENEFIT_KEY]) : null
+            )
             ->setHash($response[self::HASH_KEY] ?? null);
 
         return $model;
@@ -1283,7 +1289,7 @@ class TicketModel extends AbstractModel
             self::BENEFIT_KEY                => $this->getBenefit()?->toArray(),
             self::HASH_KEY                   => $this->getHash(),
 
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

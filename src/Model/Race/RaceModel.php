@@ -661,7 +661,7 @@ class RaceModel extends AbstractModel
             self::CLAZZ_KEY                => $this->getClazz()?->toArray(),
             self::STATUS_KEY               => $this->getStatus()?->toArray(),
             self::FROM_CACHE_KEY           => $this->getFromCache(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

@@ -1,0 +1,11 @@
+{
+    "all": {
+        "due": 1.01,
+        "fare": 2.01,
+        "ticketCode": "ticketCode",
+        "ticketId": 1
+    },
+    "required": {
+
+    }
+}

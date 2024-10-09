@@ -1,0 +1,10 @@
+{
+    "all": {
+        "code": "code",
+        "name": "name",
+        "type": "type"
+    },
+    "required": {
+
+    }
+}

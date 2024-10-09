@@ -67,9 +67,9 @@ class BookOrderParametersModel extends AbstractModel
         $model = new static();
 
         $model
-            ->setUid($response[self::UID_KEY])
+            ->setUid($response[self::UID_KEY] ?? null)
             ->setSales(
-                $response[self::SALES_KEY]
+                isset($response[self::SALES_KEY])
                     ? array_map(fn($item) => SaleModel::fromArray($item), $response[self::SALES_KEY])
                     : null
             );
@@ -86,7 +86,7 @@ class BookOrderParametersModel extends AbstractModel
             self::UID_KEY   => $this->getUid(),
             self::SALES_KEY =>
                 $this->getSales() ? array_map(fn($ticket) => $ticket->toArray(), $this->getSales()) : null,
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

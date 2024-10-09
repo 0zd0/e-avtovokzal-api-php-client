@@ -1,0 +1,9 @@
+{
+    "all": {
+        "id": 2,
+        "name": "STATUS_CANCELED"
+    },
+    "required": {
+        "id": 2
+    }
+}
