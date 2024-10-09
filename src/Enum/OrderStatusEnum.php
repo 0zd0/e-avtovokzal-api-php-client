@@ -2,7 +2,7 @@
 
 namespace Onepix\EAvtovokzalApiClient\Enum;
 
-enum StatusEnum: string
+enum OrderStatusEnum: string
 {
     case STATUS_BOOKED = 'STATUS_BOOKED';
     case STATUS_CANCELLED = 'STATUS_CANCELLED';

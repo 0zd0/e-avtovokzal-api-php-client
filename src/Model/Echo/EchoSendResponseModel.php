@@ -8,22 +8,22 @@ class EchoSendResponseModel extends AbstractModel
 {
     public const RETURN_KEY = 'return';
 
-    protected string $return;
+    protected ?string $return = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReturn(): string
+    public function getReturn(): ?string
     {
         return $this->return;
     }
 
     /**
-     * @param string $return
+     * @param string|null $return
      *
      * @return self
      */
-    public function setReturn(string $return): self
+    public function setReturn(?string $return): self
     {
         $this->return = $return;
 
@@ -37,7 +37,7 @@ class EchoSendResponseModel extends AbstractModel
         $model = new static();
 
         $model
-            ->setReturn($response[self::RETURN_KEY]);
+            ->setReturn($response[self::RETURN_KEY] ?? null);
 
         return $model;
     }

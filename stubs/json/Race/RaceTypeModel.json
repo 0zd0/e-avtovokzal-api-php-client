@@ -1,0 +1,9 @@
+{
+    "all": {
+        "id": 0,
+        "name": "TYPE_UNKNOWN"
+    },
+    "required": {
+        "id": 0
+    }
+}

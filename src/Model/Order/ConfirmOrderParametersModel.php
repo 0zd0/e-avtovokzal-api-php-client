@@ -90,7 +90,7 @@ class ConfirmOrderParametersModel extends AbstractModel
             ->setOrderId($response[self::ORDER_ID_KEY])
             ->setPaymentMethod($response[self::PAYMENT_METHOD_KEY] ?? null)
             ->setOptions(
-                $response[self::OPTIONS_KEY]
+                isset($response[self::OPTIONS_KEY])
                     ? array_map([TicketOptionModel::class, 'fromArray'], $response[self::OPTIONS_KEY])
                     : null
             );
@@ -108,7 +108,7 @@ class ConfirmOrderParametersModel extends AbstractModel
             self::PAYMENT_METHOD_KEY => $this->getPaymentMethod(),
             self::OPTIONS_KEY        =>
                 $this->getOptions() ? array_map(fn($ticket) => $ticket->toArray(), $this->getOptions()) : null,
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

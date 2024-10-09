@@ -1,0 +1,13 @@
+{
+    "all": {
+        "id": 1,
+        "fullName": "fullName",
+        "inn": "inn",
+        "markup": 2.01,
+        "extra": 3.01,
+        "currencyCode": "currencyCode"
+    },
+    "required": {
+
+    }
+}

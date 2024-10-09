@@ -122,7 +122,7 @@ class TicketOptionModel extends AbstractModel
             self::FARE_KEY => $this->getFare(),
             self::TICKET_CODE_KEY => $this->getTicketCode(),
             self::TICKET_ID_KEY => $this->getTicketId(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

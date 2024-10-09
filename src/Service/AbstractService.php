@@ -2,22 +2,22 @@
 
 namespace Onepix\EAvtovokzalApiClient\Service;
 
-use Onepix\EAvtovokzalApiClient\HttpClient;
+use Onepix\EAvtovokzalApiClient\Client;
 
 abstract class AbstractService
 {
-    protected HttpClient $client;
+    protected Client $client;
 
     public function __construct(
-        HttpClient $client
+        Client $client
     ) {
         $this->client = $client;
     }
 
     /**
-     * @return HttpClient
+     * @return Client
      */
-    public function getClient(): HttpClient
+    public function getClient(): Client
     {
         return $this->client;
     }

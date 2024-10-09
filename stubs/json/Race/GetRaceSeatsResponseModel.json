@@ -1,0 +1,13 @@
+{
+    "all": {
+        "return": [
+            {
+                "code": "code",
+                "name": "name",
+                "type": "type"
+            }
+        ]
+    },
+    "required": {
+    }
+}

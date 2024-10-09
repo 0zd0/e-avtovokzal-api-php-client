@@ -336,12 +336,14 @@ class SaleModel extends AbstractModel
             ->setDocNum($response[self::DOC_NUM_KEY] ?? null)
             ->setGender($response[self::GENDER_KEY] ?? null)
             ->setCitizenship($response[self::CITIZENSHIP_KEY] ?? null)
-            ->setBirthday($response[self::BIRTHDAY_KEY] ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
+            ->setBirthday(isset($response[self::BIRTHDAY_KEY]) ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
             ->setPhone($response[self::PHONE_KEY] ?? null)
             ->setEmail($response[self::EMAIL_KEY] ?? null)
             ->setSeatCode($response[self::SEAT_CODE_KEY] ?? null)
             ->setTicketTypeCode($response[self::TICKET_TYPE_CODE_KEY] ?? null)
-            ->setBenefit($response[self::BENEFIT_KEY] ? BenefitModel::fromArray($response[self::BENEFIT_KEY]) : null);
+            ->setBenefit(
+                isset($response[self::BENEFIT_KEY]) ? BenefitModel::fromArray($response[self::BENEFIT_KEY]) : null
+            );
 
         return $model;
     }
@@ -366,7 +368,7 @@ class SaleModel extends AbstractModel
             self::SEAT_CODE_KEY        => $this->getSeatCode(),
             self::TICKET_TYPE_CODE_KEY => $this->getTicketTypeCode(),
             self::BENEFIT_KEY          => $this->getBenefit()?->toArray(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

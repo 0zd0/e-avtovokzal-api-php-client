@@ -24,9 +24,9 @@ class Api
     /**
      * @throws SoapFault
      */
-    public function getClient(): HttpClient
+    public function getClient(): Client
     {
-        return new HttpClient(
+        return new Client(
             $this->login,
             $this->password,
             Constants::PROTOCOL . Constants::BASE_URL_API

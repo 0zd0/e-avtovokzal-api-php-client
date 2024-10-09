@@ -2,14 +2,10 @@
 
 <phpunit
         bootstrap="tests/bootstrap.php"
-        backupGlobals="false"
-        backupStaticAttributes="false"
         colors="true"
-        convertErrorsToExceptions="true"
-        convertNoticesToExceptions="true"
-        convertWarningsToExceptions="true"
         processIsolation="false"
-        stopOnFailure="false"
+
+        displayDetailsOnTestsThatTriggerWarnings="true"
 >
     <testsuites>
         <testsuite name="Unit tests">
@@ -21,9 +17,4 @@
             <directory>./src</directory>
         </include>
     </source>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
 </phpunit>

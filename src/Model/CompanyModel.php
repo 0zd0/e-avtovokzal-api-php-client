@@ -162,7 +162,7 @@ class CompanyModel extends AbstractModel
             self::MARKUP_KEY        => $this->getMarkup(),
             self::EXTRA_KEY         => $this->getExtra(),
             self::CURRENCY_CODE_KEY => $this->getCurrencyCode(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

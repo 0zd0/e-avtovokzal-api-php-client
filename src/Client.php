@@ -7,7 +7,7 @@ use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
 use SoapClient;
 use SoapFault;
 
-class HttpClient
+class Client
 {
     private string $baseUrl;
     private string $login;

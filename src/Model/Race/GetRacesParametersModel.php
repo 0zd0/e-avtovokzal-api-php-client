@@ -95,8 +95,8 @@ class GetRacesParametersModel extends AbstractModel
         $model = new static();
 
         $model
-            ->setArrivalPointId($response[self::DISPATCH_POINT_ID_KEY])
-            ->setArrivalPointId(self::ARRIVAL_POINT_ID_KEY);
+            ->setDispatchPointId($response[self::DISPATCH_POINT_ID_KEY])
+            ->setArrivalPointId($response[self::ARRIVAL_POINT_ID_KEY]);
 
         if (isset($response[self::DATE_KEY])) {
             $model->setDate(new DateTime($response[self::DATE_KEY]));
@@ -110,7 +110,7 @@ class GetRacesParametersModel extends AbstractModel
         return array_filter([
             self::DISPATCH_POINT_ID_KEY => $this->getDispatchPointId(),
             self::ARRIVAL_POINT_ID_KEY  => $this->getArrivalPointId(),
-            self::DATE_KEY              => $this->getDate()->format(DateTimeInterface::ATOM),
+            self::DATE_KEY              => $this->getDate()?->format(DateTimeInterface::ATOM),
         ], function ($key, $value) {
             return in_array($key, $this->mandatoryNullFieldsInRequest, true) || $value !== null;
         }, ARRAY_FILTER_USE_BOTH);

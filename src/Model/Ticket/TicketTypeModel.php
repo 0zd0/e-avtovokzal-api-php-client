@@ -146,7 +146,7 @@ class TicketTypeModel extends AbstractModel
             self::PRICE_KEY        => $this->getPrice(),
             self::TICKET_CLASS_KEY => $this->getTicketClass(),
             self::BENEFIT_CODE_KEY => $this->getBenefitCode(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

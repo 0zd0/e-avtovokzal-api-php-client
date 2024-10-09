@@ -8,8 +8,8 @@ use Onepix\EAvtovokzalApiClient\Model\Ticket\GetTicketTypesParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Ticket\GetTicketTypesResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Ticket\ReturnTicketParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Ticket\ReturnTicketResponseModel;
+use Onepix\EAvtovokzalApiClient\Model\Ticket\TicketModel;
 use Onepix\EAvtovokzalApiClient\Model\Ticket\TicketTypeModel;
-use Onepix\EAvtovokzalApiClient\Model\TicketModel;
 use SoapFault;
 
 class TicketService extends AbstractService

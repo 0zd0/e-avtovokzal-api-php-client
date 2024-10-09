@@ -1,0 +1,11 @@
+{
+    "all": {
+        "address": "address",
+        "docNum": "docNum",
+        "docSeries": "docSeries",
+        "school": "school"
+    },
+    "required": {
+
+    }
+}

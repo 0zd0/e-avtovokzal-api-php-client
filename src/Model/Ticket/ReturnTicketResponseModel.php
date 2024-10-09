@@ -3,7 +3,6 @@
 namespace Onepix\EAvtovokzalApiClient\Model\Ticket;
 
 use Onepix\EAvtovokzalApiClient\Model\AbstractReturnModel;
-use Onepix\EAvtovokzalApiClient\Model\TicketModel;
 
 class ReturnTicketResponseModel extends AbstractReturnModel
 {

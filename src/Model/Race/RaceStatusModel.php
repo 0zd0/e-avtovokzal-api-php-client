@@ -63,7 +63,7 @@ class RaceStatusModel extends AbstractModel
         $model
             ->setId($response[self::ID_KEY]);
 
-        if ($response[self::NAME_KEY]) {
+        if (isset($response[self::NAME_KEY])) {
             $model->setName(RaceStatusNameEnum::fromId($response[self::ID_KEY]));
         }
 
@@ -77,8 +77,8 @@ class RaceStatusModel extends AbstractModel
     {
         return array_filter([
             self::ID_KEY   => $this->getId(),
-            self::NAME_KEY => $this->getName()->value,
-        ], function ($key, $value) {
+            self::NAME_KEY => $this->getName()?->value,
+        ], function ($value) {
             return $value !== null;
         });
     }

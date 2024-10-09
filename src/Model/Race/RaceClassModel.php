@@ -56,14 +56,14 @@ class RaceClassModel extends AbstractModel
     /**
      * @inheritDoc
      */
-    public static function fromArray(array $response, ?string $modelClass): static
+    public static function fromArray(array $response): static
     {
         $model = new static();
 
         $model
             ->setId($response[self::ID_KEY]);
 
-        if ($response[self::NAME_KEY]) {
+        if (isset($response[self::NAME_KEY])) {
             $model->setName(RaceClassNameEnum::fromId($response[self::ID_KEY]));
         }
 
@@ -77,8 +77,8 @@ class RaceClassModel extends AbstractModel
     {
         return array_filter([
             self::ID_KEY   => $this->getId(),
-            self::NAME_KEY => $this->getName()->value,
-        ], function ($key, $value) {
+            self::NAME_KEY => $this->getName()?->value,
+        ], function ($value) {
             return $value !== null;
         });
     }

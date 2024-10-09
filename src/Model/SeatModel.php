@@ -80,9 +80,9 @@ class SeatModel extends AbstractModel
         $model = new static();
 
         $model
-            ->setCode($response[self::CODE_KEY ?? null])
-            ->setName($response[self::NAME_KEY ?? null])
-            ->setType($response[self::TYPE_KEY ?? null]);
+            ->setCode($response[self::CODE_KEY] ?? null)
+            ->setName($response[self::NAME_KEY] ?? null)
+            ->setType($response[self::TYPE_KEY] ?? null);
 
         return $model;
     }
@@ -96,7 +96,7 @@ class SeatModel extends AbstractModel
             self::CODE_KEY => $this->getCode(),
             self::NAME_KEY => $this->getName(),
             self::TYPE_KEY => $this->getType(),
-        ], function ($key, $value) {
+        ], function ($value) {
             return $value !== null;
         });
     }
