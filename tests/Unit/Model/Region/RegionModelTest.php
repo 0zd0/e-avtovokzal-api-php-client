@@ -1,13 +1,13 @@
 <?php
 
-namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Country;
+namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Region;
 
 use Exception;
-use Onepix\EAvtovokzalApiClient\Model\Country\CountryModel;
+use Onepix\EAvtovokzalApiClient\Model\Region\RegionModel;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
 use Onepix\EAvtovokzalApiClient\Test\Util\StubTrait;
 
-class CountryModelTest extends TestCase
+class RegionModelTest extends TestCase
 {
     use StubTrait;
 
@@ -16,11 +16,11 @@ class CountryModelTest extends TestCase
      */
     public function testFromArrayMethodWithRequiredFields()
     {
-        $json  = $this::getStubJsonModelWithRequiredFields(CountryModel::getClassName());
-        $model = CountryModel::fromArray($json);
+        $json  = $this::getStubJsonModelWithRequiredFields(RegionModel::getClassName());
+        $model = RegionModel::fromArray($json);
         $this::assertNull($model->getId());
         $this::assertNull($model->getName());
-        $this::assertNull($model->getFullName());
+        $this::assertNull($model->getType());
         $this::assertNull($model->getCode());
 
         $toApi = $model->toArray();
@@ -32,11 +32,11 @@ class CountryModelTest extends TestCase
      */
     public function testFromArrayMethodWithAllFields()
     {
-        $json  = $this::getStubJsonModelWithAllFields(CountryModel::getClassName());
-        $model = CountryModel::fromArray($json);
+        $json  = $this::getStubJsonModelWithAllFields(RegionModel::getClassName());
+        $model = RegionModel::fromArray($json);
         $this::assertSame(1, $model->getId());
         $this::assertSame('name', $model->getName());
-        $this::assertSame('fullName', $model->getFullName());
+        $this::assertSame('type', $model->getType());
         $this::assertSame('code', $model->getCode());
 
         $toApi = $model->toArray();
