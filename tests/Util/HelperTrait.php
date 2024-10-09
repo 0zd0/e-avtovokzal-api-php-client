@@ -25,7 +25,7 @@ trait HelperTrait
     protected Api|MockObject $apiMock;
     protected SoapClient|MockObject $soapClientMock;
     protected SoapClientFactory|MockObject $soapClientFactoryMock;
-    protected Client|MockObject $httpClientMock;
+    protected Client|MockObject $clientMock;
 
     /**
      * @throws Exception
@@ -41,7 +41,7 @@ trait HelperTrait
             ->method('create')
             ->willReturn($this->soapClientMock);
 
-        $this->httpClientMock = new Client(
+        $this->clientMock = new Client(
             $this->devConfig['api']['login'],
             $this->devConfig['api']['password'],
             Constants::PROTOCOL . Constants::BASE_URL_API,
@@ -51,11 +51,12 @@ trait HelperTrait
         $this->apiMock = $this->createMock(Api::class);
         $this->apiMock
             ->method('getClient')
-            ->willReturn($this->httpClientMock);
+            ->willReturn($this->clientMock);
 
         $this->api = new Api(
             $this->devConfig['api']['login'],
             $this->devConfig['api']['password'],
         );
+        $this->api->setTest(true);
     }
 }

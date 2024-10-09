@@ -2,6 +2,8 @@
 
 namespace Onepix\EAvtovokzalApiClient;
 
+use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
+use Onepix\EAvtovokzalApiClient\Service\CountryService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
@@ -12,6 +14,8 @@ class Api
 {
     protected string $login;
     protected string $password;
+    protected bool $test = false;
+    private ?SoapClientFactory $clientFactory = null;
 
     public function __construct(
         string $login,
@@ -22,14 +26,39 @@ class Api
     }
 
     /**
+     * @param bool $test
+     *
+     * @return self
+     */
+    public function setTest(bool $test): self
+    {
+        $this->test = $test;
+
+        return $this;
+    }
+
+    /**
+     * @param SoapClientFactory|null $clientFactory
+     *
+     * @return self
+     */
+    public function setClientFactory(?SoapClientFactory $clientFactory): self
+    {
+        $this->clientFactory = $clientFactory;
+
+        return $this;
+    }
+
+    /**
      * @throws SoapFault
      */
-    public function getClient(): Client
-    {
+    public function getClient(
+    ): Client {
         return new Client(
             $this->login,
             $this->password,
-            Constants::PROTOCOL . Constants::BASE_URL_API
+            Constants::PROTOCOL . ($this->test ? Constants::BASE_URL_TEST_API : Constants::BASE_URL_API),
+            $this->clientFactory
         );
     }
 
@@ -67,5 +96,14 @@ class Api
     public function order(): OrderService
     {
         return new OrderService($this->getClient());
+    }
+
+    /**
+     * @return CountryService
+     * @throws SoapFault
+     */
+    public function country(): CountryService
+    {
+        return new CountryService($this->getClient());
     }
 }

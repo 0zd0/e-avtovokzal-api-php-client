@@ -47,7 +47,7 @@ class BookOrderParametersModel extends AbstractModel
     }
 
     /**
-     * @param array|null $sales
+     * @param SaleModel[]|null $sales
      *
      * @return self
      */
