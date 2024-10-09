@@ -49,6 +49,7 @@ class Client
      */
     public function call(ClientMethodEnum $method, array $params = []): array
     {
-        return (array) $this->client->__soapCall($method->value, count($params) > 0 ? [$params] : $params);
+        $response = $this->client->__soapCall($method->value, count($params) > 0 ? [$params] : $params);
+        return json_decode(json_encode($response), true);
     }
 }
