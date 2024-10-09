@@ -15,4 +15,5 @@ enum ClientMethodEnum: string
     case CONFIRM_ORDER = 'confirmOrder';
     case CANCEL_ORDER = 'cancelOrder';
     case GET_COUNTRIES = 'getCountries';
+    case GET_REGIONS = 'getRegions';
 }

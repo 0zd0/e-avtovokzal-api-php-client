@@ -1,0 +1,11 @@
+{
+    "all": {
+        "id": 1,
+        "name": "name",
+        "type": "type",
+        "code": "code"
+    },
+    "required": {
+
+    }
+}

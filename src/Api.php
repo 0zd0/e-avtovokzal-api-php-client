@@ -7,6 +7,7 @@ use Onepix\EAvtovokzalApiClient\Service\CountryService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
+use Onepix\EAvtovokzalApiClient\Service\RegionService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
 use SoapFault;
 
@@ -105,5 +106,14 @@ class Api
     public function country(): CountryService
     {
         return new CountryService($this->getClient());
+    }
+
+    /**
+     * @return RegionService
+     * @throws SoapFault
+     */
+    public function region(): RegionService
+    {
+        return new RegionService($this->getClient());
     }
 }

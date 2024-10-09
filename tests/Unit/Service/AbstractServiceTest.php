@@ -7,6 +7,7 @@ use Onepix\EAvtovokzalApiClient\Service\CountryService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
+use Onepix\EAvtovokzalApiClient\Service\RegionService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
 use Onepix\EAvtovokzalApiClient\Test\Util\StubTrait;
@@ -20,6 +21,7 @@ class AbstractServiceTest extends TestCase
     protected RaceService $race;
     protected TicketService $ticket;
     protected CountryService $country;
+    protected RegionService $region;
 
     protected function setUp(): void
     {
@@ -31,6 +33,7 @@ class AbstractServiceTest extends TestCase
         $this->race = $this->api->race();
         $this->ticket = $this->api->ticket();
         $this->country = $this->api->country();
+        $this->region = $this->api->region();
     }
 
     /**
