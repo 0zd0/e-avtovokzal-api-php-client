@@ -1,3 +1,6 @@
 [api]
 login = '1111111'
 password = '22222'
+
+[codes]
+moscow = 5107

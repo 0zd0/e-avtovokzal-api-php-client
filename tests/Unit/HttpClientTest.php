@@ -20,7 +20,7 @@ class HttpClientTest extends TestCase
             ->with(ClientMethodEnum::ECHO->value, [])
             ->willReturn($return);
 
-        $result = $this->httpClientMock->call(ClientMethodEnum::ECHO, []);
+        $result = $this->clientMock->call(ClientMethodEnum::ECHO, []);
         $this->assertSame($return, $result);
     }
 
@@ -32,6 +32,6 @@ class HttpClientTest extends TestCase
             ->willThrowException(new SoapFault('Client', 'Error Message'));
 
         $this->expectException(SoapFault::class);
-        $this->httpClientMock->call(ClientMethodEnum::ECHO, []);
+        $this->clientMock->call(ClientMethodEnum::ECHO, []);
     }
 }

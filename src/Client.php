@@ -47,8 +47,8 @@ class Client
      * @return array Response from the service
      * @throws SoapFault
      */
-    public function call(ClientMethodEnum $method, array $params): array
+    public function call(ClientMethodEnum $method, array $params = []): array
     {
-        return (array)$this->client->__soapCall($method->value, count($params) > 1 ? [$params] : []);
+        return (array) $this->client->__soapCall($method->value, count($params) > 0 ? [$params] : $params);
     }
 }
