@@ -23,7 +23,7 @@ class GetRacesParametersModel extends AbstractModel
     public function __construct()
     {
         $this->mandatoryNullFieldsInRequest = [
-            self::DATE_KEY
+//            self::DATE_KEY
         ];
     }
 
@@ -111,7 +111,7 @@ class GetRacesParametersModel extends AbstractModel
             self::DISPATCH_POINT_ID_KEY => $this->getDispatchPointId(),
             self::ARRIVAL_POINT_ID_KEY  => $this->getArrivalPointId(),
             self::DATE_KEY              => $this->getDate()?->format(DateTimeInterface::ATOM),
-        ], function ($key, $value) {
+        ], function ($value, $key) {
             return in_array($key, $this->mandatoryNullFieldsInRequest, true) || $value !== null;
         }, ARRAY_FILTER_USE_BOTH);
     }

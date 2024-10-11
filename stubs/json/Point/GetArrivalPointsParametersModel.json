@@ -1,0 +1,9 @@
+{
+    "all": {
+        "dispatchPointId": 1,
+        "pattern": "pattern"
+    },
+    "required": {
+        "dispatchPointId": 1
+    }
+}

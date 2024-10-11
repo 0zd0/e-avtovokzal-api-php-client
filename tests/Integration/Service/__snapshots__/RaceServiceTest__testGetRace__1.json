@@ -1,0 +1,33 @@
+{
+    "uid": "1781863:2923376:20241012:1566:1170",
+    "depotId": 1781863,
+    "num": "6632",
+    "name": "Центральный АВ - Киржач",
+    "dispatchDate": "2024-10-12T06:30:00+00:00",
+    "arrivalDate": "2024-10-12T08:30:00+00:00",
+    "dispatchPointId": 1781863,
+    "arrivalPointId": 1785508,
+    "supplierPrice": 300,
+    "price": 300,
+    "freeSeatCount": 39,
+    "freeSeatEstimation": "39",
+    "busInfo": "Автобус 39 мест",
+    "carrier": "ООО ТК \"НЕРУД\"",
+    "carrierInn": "3316019412",
+    "principal": "Мосгортранс",
+    "principalInn": "222222222222",
+    "dataRequired": true,
+    "type": {
+        "id": 2,
+        "name": "TYPE_INTERREGIONAL"
+    },
+    "clazz": {
+        "id": 1,
+        "name": "CLASS_REGULAR"
+    },
+    "status": {
+        "id": 1,
+        "name": "STATUS_ON_SALE"
+    },
+    "fromCache": false
+}

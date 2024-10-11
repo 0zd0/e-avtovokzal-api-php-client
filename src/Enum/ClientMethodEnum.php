@@ -16,4 +16,6 @@ enum ClientMethodEnum: string
     case CANCEL_ORDER = 'cancelOrder';
     case GET_COUNTRIES = 'getCountries';
     case GET_REGIONS = 'getRegions';
+    case GET_DISPATCH_POINTS = 'getDispatchPoints';
+    case GET_ARRIVAL_POINTS = 'getArrivalPoints';
 }

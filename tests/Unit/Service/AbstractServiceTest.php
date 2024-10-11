@@ -6,6 +6,7 @@ use Exception;
 use Onepix\EAvtovokzalApiClient\Service\CountryService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
+use Onepix\EAvtovokzalApiClient\Service\PointService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
 use Onepix\EAvtovokzalApiClient\Service\RegionService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
@@ -22,6 +23,7 @@ class AbstractServiceTest extends TestCase
     protected TicketService $ticket;
     protected CountryService $country;
     protected RegionService $region;
+    protected PointService $point;
 
     protected function setUp(): void
     {
@@ -34,6 +36,7 @@ class AbstractServiceTest extends TestCase
         $this->ticket = $this->api->ticket();
         $this->country = $this->api->country();
         $this->region = $this->api->region();
+        $this->point = $this->api->point();
     }
 
     /**

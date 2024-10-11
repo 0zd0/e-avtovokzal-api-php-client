@@ -11,6 +11,7 @@ use Spatie\Snapshots\MatchesSnapshots;
 class EchoServiceTest extends TestCase
 {
     use MatchesSnapshots;
+
     /**
      * @throws SoapFault
      */

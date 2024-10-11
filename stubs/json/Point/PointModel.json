@@ -1,0 +1,17 @@
+{
+    "all": {
+        "address": "address",
+        "details": "details",
+        "id": 1,
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "name": "name",
+        "okato": "okato",
+        "place": true,
+        "region": "region"
+    },
+    "required": {
+        "id": 1,
+        "place": true
+    }
+}
