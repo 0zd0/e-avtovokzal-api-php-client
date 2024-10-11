@@ -1,0 +1,54 @@
+{
+    "all": {
+        "uid": "uid",
+        "depotId": 12345,
+        "num": "num",
+        "name": "name",
+        "description": "description",
+        "dispatchDate": "2024-08-01T12:00:00+00:00",
+        "arrivalDate": "2024-08-01T18:00:00+00:00",
+        "dispatchStationName": "dispatchStationName",
+        "arrivalStationName": "arrivalStationName",
+        "dispatchPointId": 54321,
+        "arrivalPointId": 67890,
+        "supplierPrice": 123.45,
+        "price": 678.90,
+        "freeSeatCount": 50,
+        "freeSeatEstimation": "freeSeatEstimation",
+        "busInfo": "busInfo",
+        "carrier": "carrier",
+        "carrierInn": "carrierInn",
+        "carrierPhone": "carrierPhone",
+        "principal": "principal",
+        "principalInn": "principalInn",
+        "dataRequired": true,
+        "type": {
+            "id": 0,
+            "name": "TYPE_UNKNOWN"
+        },
+        "clazz": {
+            "id": 1,
+            "name": "CLASS_REGULAR"
+        },
+        "status": {
+            "id": 2,
+            "name": "STATUS_CANCELED"
+        },
+        "fromCache": false
+    },
+    "required": {
+        "depotId": 12345,
+        "freeSeatCount": 50,
+        "dataRequired": true,
+        "type": {
+            "id": 0
+        },
+        "clazz": {
+            "id": 1
+        },
+        "status": {
+            "id": 2
+        },
+        "fromCache": false
+    }
+}

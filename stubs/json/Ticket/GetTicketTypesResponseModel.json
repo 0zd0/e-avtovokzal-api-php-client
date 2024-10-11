@@ -1,0 +1,15 @@
+{
+    "all": {
+        "return": [
+            {
+                "code": "code",
+                "name": "name",
+                "price": 1.01,
+                "ticketClass": "ticketClass",
+                "benefitCode": "benefitCode"
+            }
+        ]
+    },
+    "required": {
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "all": {
+        "return": {
+            "uid": "uid",
+            "id": 1,
+            "user": {
+                "id": 1,
+                "username": "username"
+            },
+            "agent": {
+                "id": 1,
+                "fullName": "fullName",
+                "inn": "inn",
+                "markup": 2.01,
+                "extra": 3.01,
+                "currencyCode": "currencyCode"
+            },
+            "reserveCode": "reserveCode",
+            "total": 1.01,
+            "paymentMethod": "paymentMethod",
+            "repayment": 2.01,
+            "status": "STATUS_BOOKED",
+            "created": "2024-08-01T00:00:00+00:00",
+            "expired": "2024-08-02T00:00:00+00:00",
+            "finished": "2024-08-03T00:00:00+00:00",
+            "tickets": [
+                {
+                    "id": 1,
+                    "uid": "uid",
+                    "ticketCode": "ticketCode",
+                    "ticketNum": "ticketNum",
+                    "ticketSeries": "ticketSeries",
+                    "ticketClass": "CLASS_BAGGAGE",
+                    "ticketTypeCode": "ticketTypeCode",
+                    "ticketType": "ticketType",
+                    "raceUid": "raceUid",
+                    "raceNum": "raceNum",
+                    "raceName": "raceName",
+                    "raceClassId": 2,
+                    "dispatchDate": "2024-08-01T00:00:00+00:00",
+                    "dispatchStation": "dispatchStation",
+                    "dispatchAddress": "dispatchAddress",
+                    "arrivalDate": "2024-08-01T01:00:00+00:00",
+                    "arrivalStation": "arrivalStation",
+                    "arrivalAddress": "arrivalAddress",
+                    "seat": "seat",
+                    "seatCode": "seatCode",
+                    "platform": "platform",
+                    "lastName": "lastName",
+                    "firstName": "firstName",
+                    "middleName": "middleName",
+                    "docTypeCode": "docTypeCode",
+                    "docType": "docType",
+                    "docSeries": "docSeries",
+                    "docNum": "docNum",
+                    "citizenship": "citizenship",
+                    "gender": "gender",
+                    "birthday": "2024-08-02T00:00:00+00:00",
+                    "phone": "phone",
+                    "email": "email",
+                    "supplierCurrencyCode": "supplierCurrencyCode",
+                    "supplierFare": 6.01,
+                    "supplierDues": 7.01,
+                    "supplierPrice": 8.01,
+                    "supplierRepayment": 9.01,
+                    "currencyCode": "RUB",
+                    "dues": 10.01,
+                    "price": 11.01,
+                    "vat": 12.01,
+                    "repayment": 13.01,
+                    "busInfo": "busInfo",
+                    "carrier": "carrier",
+                    "carrierInn": "carrierInn",
+                    "carrierPhone": "carrierPhone",
+                    "barcode": "barcode",
+                    "status": "STATUS_BOOKED",
+                    "returned": "2024-08-03T00:00:00+00:00",
+                    "benefit": {
+                        "address": "address",
+                        "docNum": "docNum",
+                        "docSeries": "docSeries",
+                        "school": "school"
+                    },
+                    "hash": "hash"
+                }
+            ]
+        }
+    },
+    "required": {
+    }
+}

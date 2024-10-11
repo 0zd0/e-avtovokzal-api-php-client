@@ -1,0 +1,9 @@
+{
+    "all": {
+        "id": 1,
+        "name": "CLASS_REGULAR"
+    },
+    "required": {
+        "id": 1
+    }
+}

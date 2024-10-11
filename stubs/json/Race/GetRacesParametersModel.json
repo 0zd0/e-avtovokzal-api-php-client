@@ -1,0 +1,11 @@
+{
+    "all": {
+        "dispatchPointId": 12345,
+        "arrivalPointId": 67890,
+        "date": "2024-08-01T12:00:00+00:00"
+    },
+    "required": {
+        "dispatchPointId": 12345,
+        "arrivalPointId": 67890
+    }
+}

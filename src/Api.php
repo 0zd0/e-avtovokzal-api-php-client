@@ -2,27 +2,128 @@
 
 namespace Onepix\EAvtovokzalApiClient;
 
-use GuzzleHttp\Client;
+use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
+use Onepix\EAvtovokzalApiClient\Service\CountryService;
+use Onepix\EAvtovokzalApiClient\Service\EchoService;
+use Onepix\EAvtovokzalApiClient\Service\OrderService;
+use Onepix\EAvtovokzalApiClient\Service\PointService;
+use Onepix\EAvtovokzalApiClient\Service\RaceService;
+use Onepix\EAvtovokzalApiClient\Service\RegionService;
+use Onepix\EAvtovokzalApiClient\Service\TicketService;
+use SoapFault;
 
 class Api
 {
-    protected HttpClient $client;
-    protected string $apiKey;
+    protected string $login;
+    protected string $password;
+    protected bool $test = false;
+    private ?SoapClientFactory $clientFactory = null;
 
     public function __construct(
-        string $apiKey
+        string $login,
+        string $password,
     ) {
-        $this->apiKey = $apiKey;
+        $this->login    = $login;
+        $this->password = $password;
     }
 
-    public function getClient(): HttpClient
+    /**
+     * @param bool $test
+     *
+     * @return self
+     */
+    public function setTest(bool $test): self
     {
-        return new HttpClient(
-            $this->apiKey,
-            new Client([
-                'base_uri' => Constants::PROTOCOL . Constants::BASE_URL_API,
-                'timeout' => 20
-            ])
+        $this->test = $test;
+
+        return $this;
+    }
+
+    /**
+     * @param SoapClientFactory|null $clientFactory
+     *
+     * @return self
+     */
+    public function setClientFactory(?SoapClientFactory $clientFactory): self
+    {
+        $this->clientFactory = $clientFactory;
+
+        return $this;
+    }
+
+    /**
+     * @throws SoapFault
+     */
+    public function getClient(): Client
+    {
+        return new Client(
+            $this->login,
+            $this->password,
+            Constants::PROTOCOL . ($this->test ? Constants::BASE_URL_TEST_API : Constants::BASE_URL_API),
+            $this->clientFactory
         );
+    }
+
+    /**
+     * @return EchoService
+     * @throws SoapFault
+     */
+    public function echo(): EchoService
+    {
+        return new EchoService($this->getClient());
+    }
+
+    /**
+     * @return RaceService
+     * @throws SoapFault
+     */
+    public function race(): RaceService
+    {
+        return new RaceService($this->getClient());
+    }
+
+    /**
+     * @return TicketService
+     * @throws SoapFault
+     */
+    public function ticket(): TicketService
+    {
+        return new TicketService($this->getClient());
+    }
+
+    /**
+     * @return OrderService
+     * @throws SoapFault
+     */
+    public function order(): OrderService
+    {
+        return new OrderService($this->getClient());
+    }
+
+    /**
+     * @return CountryService
+     * @throws SoapFault
+     */
+    public function country(): CountryService
+    {
+        return new CountryService($this->getClient());
+    }
+
+    /**
+     * @return RegionService
+     * @throws SoapFault
+     */
+    public function region(): RegionService
+    {
+        return new RegionService($this->getClient());
+    }
+
+    /**
+     * @return PointService
+     * @throws SoapFault
+     */
+    public function point(): PointService
+    {
+        return new PointService($this->getClient());
     }
 }

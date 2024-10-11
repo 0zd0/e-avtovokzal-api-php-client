@@ -1,0 +1,18 @@
+{
+    "all": {
+        "orderId": 1,
+        "paymentMethod": "paymentMethod",
+        "options": [
+            {
+                "code": "code",
+                "name": "name",
+                "price": 1.01,
+                "ticketClass": "ticketClass",
+                "benefitCode": "benefitCode"
+            }
+        ]
+    },
+    "required": {
+        "orderId": 1
+    }
+}

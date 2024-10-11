@@ -1,0 +1,29 @@
+{
+    "all": {
+        "uid": "uid",
+        "sales": [
+            {
+                "lastName": "lastName",
+                "firstName": "firstName",
+                "middleName": "middleName",
+                "docSeries": "docSeries",
+                "docNum": "docNum",
+                "gender": "M",
+                "citizenship": "citizenship",
+                "birthday": "2024-08-01T00:00:00+00:00",
+                "phone": "phone",
+                "email": "email",
+                "seatCode": "seatCode",
+                "ticketTypeCode": "ticketTypeCode",
+                "benefit": {
+                    "address": "address",
+                    "docNum": "docNum",
+                    "docSeries": "docSeries",
+                    "school": "school"
+                }
+            }
+        ]
+    },
+    "required": {
+    }
+}

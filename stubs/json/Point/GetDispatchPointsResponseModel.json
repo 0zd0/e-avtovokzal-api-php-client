@@ -1,0 +1,12 @@
+{
+    "all": {
+        "return": [
+            {
+                "id": 1,
+                "place": true
+            }
+        ]
+    },
+    "required": {
+    }
+}

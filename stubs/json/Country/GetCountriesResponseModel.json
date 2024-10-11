@@ -1,0 +1,14 @@
+{
+    "all": {
+        "return": [
+            {
+                "id": 1,
+                "name": "name",
+                "fullName": "fullName",
+                "code": "code"
+            }
+        ]
+    },
+    "required": {
+    }
+}
