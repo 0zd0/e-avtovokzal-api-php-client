@@ -20,6 +20,19 @@
         "yosymfony/toml": "^v1.0.4",
         "spatie/phpunit-snapshot-assertions": "^5.1.6"
     },
+    "archive": {
+        "exclude": [
+            "tests",
+            "docker",
+            "config.sample.toml",
+            "phpunit.integration.xml",
+            "phpunit.unit.xml",
+            "stubs",
+            ".gitignore",
+            ".editorconfig",
+            "docker-compose.yml"
+        ]
+    },
     "scripts": {
         "phpcs": "php ./vendor/bin/phpcs ./src ./tests --standard=PSR12 --cache -p -s --colors --report=summary --exclude=Generic.Files.LineLength",
         "phpcs:full": "php ./vendor/bin/phpcs ./src ./tests --standard=PSR12 --cache -p -s --colors --exclude=Generic.Files.LineLength",
