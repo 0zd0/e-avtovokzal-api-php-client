@@ -3,5 +3,14 @@ login = '1111111'
 password = '22222'
 
 [codes]
-ru = 643
-moscow = 5107
+ru_id = 643
+moscow_id = 13
+moscow_dispatch_id = 5107
+kirzhach_arrival_id = 39159
+order_id = 2085731
+ticket_id = 2095222
+
+[filter]
+arrival_pattern = 'киржач'
+race_date = '2024-10-12 09:00'
+race_uid = '1781863:2923376:20241012:1566:1170'
