@@ -5,7 +5,7 @@ namespace Onepix\EAvtovokzalApiClient\Model;
 use DateTime;
 use DateTimeInterface;
 use Exception;
-use Onepix\EAvtovokzalApiClient\Model\AbstractModel;
+use Onepix\EAvtovokzalApiClient\Enum\GenderEnum;
 
 class SaleModel extends AbstractModel
 {
@@ -30,7 +30,7 @@ class SaleModel extends AbstractModel
     protected ?string $docTypeCode = null;
     protected ?string $docSeries = null;
     protected ?string $docNum = null;
-    protected ?string $gender = null;
+    protected ?GenderEnum $gender = null;
     protected ?string $citizenship = null;
     protected ?DateTime $birthday = null;
     protected ?string $phone = null;
@@ -120,9 +120,9 @@ class SaleModel extends AbstractModel
     }
 
     /**
-     * @return string|null
+     * @return GenderEnum|null
      */
-    public function getGender(): ?string
+    public function getGender(): ?GenderEnum
     {
         return $this->gender;
     }
@@ -272,11 +272,11 @@ class SaleModel extends AbstractModel
     }
 
     /**
-     * @param string|null $gender
+     * @param GenderEnum|null $gender
      *
      * @return self
      */
-    public function setGender(?string $gender): self
+    public function setGender(?GenderEnum $gender): self
     {
         $this->gender = $gender;
 
@@ -334,7 +334,7 @@ class SaleModel extends AbstractModel
             ->setDocTypeCode($response[self::DOC_TYPE_CODE_KEY] ?? null)
             ->setDocSeries($response[self::DOC_SERIES_KEY] ?? null)
             ->setDocNum($response[self::DOC_NUM_KEY] ?? null)
-            ->setGender($response[self::GENDER_KEY] ?? null)
+            ->setGender(GenderEnum::tryFrom($response[self::GENDER_KEY] ?? null))
             ->setCitizenship($response[self::CITIZENSHIP_KEY] ?? null)
             ->setBirthday(isset($response[self::BIRTHDAY_KEY]) ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
             ->setPhone($response[self::PHONE_KEY] ?? null)
@@ -360,7 +360,7 @@ class SaleModel extends AbstractModel
             self::DOC_TYPE_CODE_KEY    => $this->getDocTypeCode(),
             self::DOC_SERIES_KEY       => $this->getDocSeries(),
             self::DOC_NUM_KEY          => $this->getDocNum(),
-            self::GENDER_KEY           => $this->getGender(),
+            self::GENDER_KEY           => $this->getGender()?->value,
             self::CITIZENSHIP_KEY      => $this->getCitizenship(),
             self::BIRTHDAY_KEY         => $this->getBirthday()?->format(DateTimeInterface::ATOM),
             self::PHONE_KEY            => $this->getPhone(),

@@ -1,0 +1,8 @@
+{
+    "all": {
+        "regionId": 1
+    },
+    "required": {
+        "regionId": 1
+    }
+}

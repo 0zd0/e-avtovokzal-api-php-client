@@ -6,6 +6,7 @@ use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
 use Onepix\EAvtovokzalApiClient\Service\CountryService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
+use Onepix\EAvtovokzalApiClient\Service\PointService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
 use Onepix\EAvtovokzalApiClient\Service\RegionService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
@@ -53,8 +54,8 @@ class Api
     /**
      * @throws SoapFault
      */
-    public function getClient(
-    ): Client {
+    public function getClient(): Client
+    {
         return new Client(
             $this->login,
             $this->password,
@@ -115,5 +116,14 @@ class Api
     public function region(): RegionService
     {
         return new RegionService($this->getClient());
+    }
+
+    /**
+     * @return PointService
+     * @throws SoapFault
+     */
+    public function point(): PointService
+    {
+        return new PointService($this->getClient());
     }
 }

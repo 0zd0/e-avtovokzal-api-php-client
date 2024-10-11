@@ -19,7 +19,7 @@ class RegionServiceTest extends TestCase
     {
         $response = $this->api->region()->get(
             (new GetRegionsParametersModel())
-            ->setCountryId($this->devConfig['codes']['ru'])
+            ->setCountryId($this->devConfig['codes']['ru_id'])
         );
 
         $this->assertMatchesSnapshot(array_map(fn($item) => $item->toArray(), $response), new JsonDriverUnicode());

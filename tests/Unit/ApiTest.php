@@ -5,6 +5,7 @@ namespace Onepix\EAvtovokzalApiClient\Test\Unit;
 use Onepix\EAvtovokzalApiClient\Client;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
+use Onepix\EAvtovokzalApiClient\Service\PointService;
 use Onepix\EAvtovokzalApiClient\Service\RaceService;
 use Onepix\EAvtovokzalApiClient\Service\TicketService;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
@@ -60,5 +61,13 @@ class ApiTest extends TestCase
     public function testOrder()
     {
         $this::assertInstanceOf(OrderService::class, $this->api->order());
+    }
+
+    /**
+     * @throws SoapFault
+     */
+    public function testPoint()
+    {
+        $this::assertInstanceOf(PointService::class, $this->api->point());
     }
 }
