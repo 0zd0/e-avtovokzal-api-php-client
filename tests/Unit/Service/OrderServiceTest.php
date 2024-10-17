@@ -14,7 +14,7 @@ use Onepix\EAvtovokzalApiClient\Model\Order\GetOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\OrderModel;
 use SoapFault;
 
-class OrderServiceTest extends AbstractServiceTest
+class OrderServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault

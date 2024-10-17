@@ -89,7 +89,9 @@ abstract class AbstractReturnModel extends AbstractModel
     public function toArray(): array
     {
         return [
-            self::RETURN_KEY => $this->getSingleReturn() ?? $this->getMultipleReturns(),
+            self::RETURN_KEY => ! self::ARRAY_MODELS
+                ? $this->getSingleReturn()?->toArray()
+                : array_map(fn($item) => $item->toArray(), $this->getMultipleReturns() ?? []),
         ];
     }
 }

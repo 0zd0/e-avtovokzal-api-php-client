@@ -7,7 +7,7 @@ use Onepix\EAvtovokzalApiClient\Model\Echo\EchoSendParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Echo\EchoSendResponseModel;
 use SoapFault;
 
-class EchoServiceTest extends AbstractServiceTest
+class EchoServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault

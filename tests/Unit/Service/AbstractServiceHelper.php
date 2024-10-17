@@ -13,7 +13,7 @@ use Onepix\EAvtovokzalApiClient\Service\TicketService;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
 use Onepix\EAvtovokzalApiClient\Test\Util\StubTrait;
 
-class AbstractServiceTest extends TestCase
+class AbstractServiceHelper extends TestCase
 {
     use StubTrait;
 

@@ -27,7 +27,6 @@ class OrderService extends AbstractService
     public function getOrder(
         GetOrderParametersModel $data
     ): ?OrderModel {
-        var_dump($data->toArray());
         $response = $this->getClient()->call(
             ClientMethodEnum::GET_ORDER,
             $data->toArray()

@@ -11,7 +11,7 @@ use Onepix\EAvtovokzalApiClient\Model\Ticket\TicketModel;
 use Onepix\EAvtovokzalApiClient\Model\Ticket\TicketTypeModel;
 use SoapFault;
 
-class TicketServiceTest extends AbstractServiceTest
+class TicketServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault

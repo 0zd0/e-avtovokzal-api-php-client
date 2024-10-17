@@ -8,7 +8,7 @@ use Onepix\EAvtovokzalApiClient\Model\Region\GetRegionsResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Region\RegionModel;
 use SoapFault;
 
-class RegionServiceTest extends AbstractServiceTest
+class RegionServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault
