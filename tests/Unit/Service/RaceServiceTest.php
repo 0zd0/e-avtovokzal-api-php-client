@@ -13,7 +13,7 @@ use Onepix\EAvtovokzalApiClient\Model\Race\RaceModel;
 use Onepix\EAvtovokzalApiClient\Model\SeatModel;
 use SoapFault;
 
-class RaceServiceTest extends AbstractServiceTest
+class RaceServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault

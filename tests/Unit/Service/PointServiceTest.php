@@ -10,7 +10,7 @@ use Onepix\EAvtovokzalApiClient\Model\Point\GetDispatchPointsResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Point\PointModel;
 use SoapFault;
 
-class PointServiceTest extends AbstractServiceTest
+class PointServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault
