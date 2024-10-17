@@ -334,7 +334,7 @@ class SaleModel extends AbstractModel
             ->setDocTypeCode($response[self::DOC_TYPE_CODE_KEY] ?? null)
             ->setDocSeries($response[self::DOC_SERIES_KEY] ?? null)
             ->setDocNum($response[self::DOC_NUM_KEY] ?? null)
-            ->setGender(GenderEnum::tryFrom($response[self::GENDER_KEY] ?? null))
+            ->setGender(GenderEnum::tryFrom($response[self::GENDER_KEY] ?? ''))
             ->setCitizenship($response[self::CITIZENSHIP_KEY] ?? null)
             ->setBirthday(isset($response[self::BIRTHDAY_KEY]) ? new DateTime($response[self::BIRTHDAY_KEY]) : null)
             ->setPhone($response[self::PHONE_KEY] ?? null)

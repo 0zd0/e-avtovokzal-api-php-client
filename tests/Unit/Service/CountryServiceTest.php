@@ -5,11 +5,9 @@ namespace Onepix\EAvtovokzalApiClient\Test\Unit\Service;
 use Exception;
 use Onepix\EAvtovokzalApiClient\Model\Country\CountryModel;
 use Onepix\EAvtovokzalApiClient\Model\Country\GetCountriesResponseModel;
-use Onepix\EAvtovokzalApiClient\Model\Echo\EchoSendParametersModel;
-use Onepix\EAvtovokzalApiClient\Model\Echo\EchoSendResponseModel;
 use SoapFault;
 
-class CountryServiceTest extends AbstractServiceTest
+class CountryServiceTest extends AbstractServiceHelper
 {
     /**
      * @throws SoapFault

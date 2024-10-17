@@ -4,6 +4,7 @@ namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model;
 
 use DateTime;
 use Exception;
+use Onepix\EAvtovokzalApiClient\Enum\GenderEnum;
 use Onepix\EAvtovokzalApiClient\Model\BenefitModel;
 use Onepix\EAvtovokzalApiClient\Model\SaleModel;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
@@ -50,7 +51,7 @@ class SaleModelTest extends TestCase
         $this::assertSame('middleName', $model->getMiddleName());
         $this::assertSame('docSeries', $model->getDocSeries());
         $this::assertSame('docNum', $model->getDocNum());
-        $this::assertSame('gender', $model->getGender());
+        $this::assertSame(GenderEnum::MALE, $model->getGender());
         $this::assertSame('citizenship', $model->getCitizenship());
         $this::assertEquals(new DateTime('2024-08-01T00:00:00+00:00'), $model->getBirthday());
         $this::assertSame('phone', $model->getPhone());
