@@ -35,8 +35,7 @@ class SaleModelTest extends TestCase
         $this::assertNull($model->getTicketTypeCode());
         $this::assertNull($model->getBenefit());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -60,7 +59,6 @@ class SaleModelTest extends TestCase
         $this::assertSame('ticketTypeCode', $model->getTicketTypeCode());
         $this::assertInstanceOf(BenefitModel::class, $model->getBenefit());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

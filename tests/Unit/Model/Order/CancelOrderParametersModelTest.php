@@ -20,8 +20,7 @@ class CancelOrderParametersModelTest extends TestCase
         $model = CancelOrderParametersModel::fromArray($json);
         $this::assertSame(1, $model->getOrderId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class CancelOrderParametersModelTest extends TestCase
         $model = CancelOrderParametersModel::fromArray($json);
         $this::assertSame(1, $model->getOrderId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -22,8 +22,7 @@ class BookOrderParametersModelTest extends TestCase
         $this::assertNull($model->getUid());
         $this::assertNull($model->getSales());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -36,7 +35,6 @@ class BookOrderParametersModelTest extends TestCase
         $this::assertSame('uid', $model->getUid());
         $this::assertContainsOnlyInstancesOf(SaleModel::class, $model->getSales());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

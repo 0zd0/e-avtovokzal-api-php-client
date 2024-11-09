@@ -21,8 +21,7 @@ class ReturnTicketResponseModelTest extends TestCase
         $model = ReturnTicketResponseModel::fromArray($json);
         $this::assertNull($model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class ReturnTicketResponseModelTest extends TestCase
         $model = ReturnTicketResponseModel::fromArray($json);
         $this::assertInstanceOf(TicketModel::class, $model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -21,8 +21,7 @@ class UserModelTest extends TestCase
         $this::assertNull($model->getId());
         $this::assertNull($model->getUsername());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -35,7 +34,6 @@ class UserModelTest extends TestCase
         $this::assertSame(1, $model->getId());
         $this::assertSame('username', $model->getUsername());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

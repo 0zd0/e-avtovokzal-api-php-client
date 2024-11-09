@@ -21,8 +21,7 @@ class GetRaceResponseModelTest extends TestCase
         $model = GetRaceResponseModel::fromArray($json);
         $this::assertNull($model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class GetRaceResponseModelTest extends TestCase
         $model = GetRaceResponseModel::fromArray($json);
         $this::assertInstanceOf(RaceModel::class, $model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -75,8 +75,7 @@ class TicketModelTest extends TestCase
         $this::assertNull($model->getBenefit());
         $this::assertNull($model->getHash());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -139,7 +138,6 @@ class TicketModelTest extends TestCase
         $this::assertInstanceOf(BenefitModel::class, $model->getBenefit());
         $this::assertSame('hash', $model->getHash());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

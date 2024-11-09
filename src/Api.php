@@ -4,6 +4,7 @@ namespace Onepix\EAvtovokzalApiClient;
 
 use Onepix\EAvtovokzalApiClient\Factory\SoapClientFactory;
 use Onepix\EAvtovokzalApiClient\Service\CountryService;
+use Onepix\EAvtovokzalApiClient\Service\DocumentService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\PointService;
@@ -125,5 +126,14 @@ class Api
     public function point(): PointService
     {
         return new PointService($this->getClient());
+    }
+
+    /**
+     * @return DocumentService
+     * @throws SoapFault
+     */
+    public function document(): DocumentService
+    {
+        return new DocumentService($this->getClient());
     }
 }

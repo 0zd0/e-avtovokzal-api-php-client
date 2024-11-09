@@ -20,8 +20,7 @@ class GetTicketTypesParametersModelTest extends TestCase
         $model = GetTicketTypesParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class GetTicketTypesParametersModelTest extends TestCase
         $model = GetTicketTypesParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

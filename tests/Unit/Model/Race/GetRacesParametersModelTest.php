@@ -23,8 +23,7 @@ class GetRacesParametersModelTest extends TestCase
         $this::assertSame(67890, $model->getArrivalPointId());
         $this::assertNull($model->getDate());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -38,7 +37,6 @@ class GetRacesParametersModelTest extends TestCase
         $this::assertSame(67890, $model->getArrivalPointId());
         $this::assertEquals(new DateTime('2024-08-01T12:00:00+00:00'), $model->getDate());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

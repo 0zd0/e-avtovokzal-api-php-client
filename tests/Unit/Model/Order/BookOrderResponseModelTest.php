@@ -3,10 +3,8 @@
 namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Order;
 
 use Exception;
-use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\BookOrderResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Order\OrderModel;
-use Onepix\EAvtovokzalApiClient\Model\SaleModel;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
 use Onepix\EAvtovokzalApiClient\Test\Util\StubTrait;
 
@@ -23,8 +21,7 @@ class BookOrderResponseModelTest extends TestCase
         $model = BookOrderResponseModel::fromArray($json);
         $this::assertNull($model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -36,7 +33,6 @@ class BookOrderResponseModelTest extends TestCase
         $model = BookOrderResponseModel::fromArray($json);
         $this::assertInstanceOf(OrderModel::class, $model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

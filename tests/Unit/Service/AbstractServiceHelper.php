@@ -4,6 +4,7 @@ namespace Onepix\EAvtovokzalApiClient\Test\Unit\Service;
 
 use Exception;
 use Onepix\EAvtovokzalApiClient\Service\CountryService;
+use Onepix\EAvtovokzalApiClient\Service\DocumentService;
 use Onepix\EAvtovokzalApiClient\Service\EchoService;
 use Onepix\EAvtovokzalApiClient\Service\OrderService;
 use Onepix\EAvtovokzalApiClient\Service\PointService;
@@ -24,6 +25,7 @@ class AbstractServiceHelper extends TestCase
     protected CountryService $country;
     protected RegionService $region;
     protected PointService $point;
+    protected DocumentService $document;
 
     protected function setUp(): void
     {
@@ -37,6 +39,7 @@ class AbstractServiceHelper extends TestCase
         $this->country = $this->api->country();
         $this->region = $this->api->region();
         $this->point = $this->api->point();
+        $this->document = $this->api->document();
     }
 
     /**

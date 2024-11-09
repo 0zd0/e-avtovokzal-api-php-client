@@ -37,8 +37,7 @@ class OrderModelTest extends TestCase
         $this::assertNull($model->getFinished());
         $this::assertNull($model->getTickets());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -62,7 +61,6 @@ class OrderModelTest extends TestCase
         $this::assertEquals(new DateTime('2024-08-03T00:00:00+00:00'), $model->getFinished());
         $this::assertContainsOnlyInstancesOf(TicketModel::class, $model->getTickets());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -18,4 +18,5 @@ enum ClientMethodEnum: string
     case GET_REGIONS = 'getRegions';
     case GET_DISPATCH_POINTS = 'getDispatchPoints';
     case GET_ARRIVAL_POINTS = 'getArrivalPoints';
+    case GET_DOC_TYPES = 'getDocTypes';
 }

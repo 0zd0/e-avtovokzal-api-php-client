@@ -23,8 +23,7 @@ class CountryModelTest extends TestCase
         $this::assertNull($model->getFullName());
         $this::assertNull($model->getCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -39,7 +38,6 @@ class CountryModelTest extends TestCase
         $this::assertSame('fullName', $model->getFullName());
         $this::assertSame('code', $model->getCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

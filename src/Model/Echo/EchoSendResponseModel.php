@@ -29,6 +29,7 @@ class EchoSendResponseModel extends AbstractModel
 
         return $this;
     }
+
     /**
      * @inheritDoc
      */
@@ -47,8 +48,12 @@ class EchoSendResponseModel extends AbstractModel
      */
     public function toArray(): array
     {
-        return [
-            self::RETURN_KEY => $this->getReturn(),
-        ];
+        if (! is_null($this->getReturn())) {
+            return [
+                self::RETURN_KEY => $this->getReturn(),
+            ];
+        }
+
+        return [];
     }
 }

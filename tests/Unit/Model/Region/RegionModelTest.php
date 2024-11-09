@@ -23,8 +23,7 @@ class RegionModelTest extends TestCase
         $this::assertNull($model->getType());
         $this::assertNull($model->getCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -39,7 +38,6 @@ class RegionModelTest extends TestCase
         $this::assertSame('type', $model->getType());
         $this::assertSame('code', $model->getCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

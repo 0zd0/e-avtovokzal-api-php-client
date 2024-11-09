@@ -21,8 +21,7 @@ class GetArrivalPointsResponseModelTest extends TestCase
         $model = GetArrivalPointsResponseModel::fromArray($json);
         $this::assertNull($model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class GetArrivalPointsResponseModelTest extends TestCase
         $model = GetArrivalPointsResponseModel::fromArray($json);
         $this::assertContainsOnlyInstancesOf(PointModel::class, $model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -23,8 +23,7 @@ class ConfirmOrderParametersModelTest extends TestCase
         $this::assertNull($model->getPaymentMethod());
         $this::assertNull($model->getOptions());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -38,7 +37,6 @@ class ConfirmOrderParametersModelTest extends TestCase
         $this::assertSame('paymentMethod', $model->getPaymentMethod());
         $this::assertContainsOnlyInstancesOf(TicketOptionModel::class, $model->getOptions());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

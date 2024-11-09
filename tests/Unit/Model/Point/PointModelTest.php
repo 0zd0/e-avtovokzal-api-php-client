@@ -28,8 +28,7 @@ class PointModelTest extends TestCase
         $this::assertNull($model->getRegion());
         $this::assertSame(true, $model->getPlace());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -49,7 +48,6 @@ class PointModelTest extends TestCase
         $this::assertSame(true, $model->getPlace());
         $this::assertSame('region', $model->getRegion());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

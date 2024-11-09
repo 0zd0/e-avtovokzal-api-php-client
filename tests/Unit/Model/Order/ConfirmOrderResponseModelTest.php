@@ -21,8 +21,7 @@ class ConfirmOrderResponseModelTest extends TestCase
         $model = ConfirmOrderResponseModel::fromArray($json);
         $this::assertNull($model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class ConfirmOrderResponseModelTest extends TestCase
         $model = ConfirmOrderResponseModel::fromArray($json);
         $this::assertInstanceOf(OrderModel::class, $model->getSingleReturn());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }
