@@ -21,8 +21,7 @@ class GetRaceSeatsResponseModelTest extends TestCase
         $model = GetRaceSeatsResponseModel::fromArray($json);
         $this::assertNull($model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class GetRaceSeatsResponseModelTest extends TestCase
         $model = GetRaceSeatsResponseModel::fromArray($json);
         $this::assertContainsOnlyInstancesOf(SeatModel::class, $model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

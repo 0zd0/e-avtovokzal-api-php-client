@@ -23,8 +23,7 @@ class BenefitModelTest extends TestCase
         $this::assertNull($model->getDocSeries());
         $this::assertNull($model->getSchool());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -39,7 +38,6 @@ class BenefitModelTest extends TestCase
         $this::assertSame('docSeries', $model->getDocSeries());
         $this::assertSame('school', $model->getSchool());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

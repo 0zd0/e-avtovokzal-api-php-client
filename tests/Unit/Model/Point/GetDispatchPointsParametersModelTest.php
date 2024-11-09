@@ -20,8 +20,7 @@ class GetDispatchPointsParametersModelTest extends TestCase
         $model = GetDispatchPointsParametersModel::fromArray($json);
         $this::assertSame(1, $model->getRegionId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class GetDispatchPointsParametersModelTest extends TestCase
         $model = GetDispatchPointsParametersModel::fromArray($json);
         $this::assertSame(1, $model->getRegionId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

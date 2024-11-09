@@ -20,8 +20,7 @@ class EchoSendParametersModelTest extends TestCase
         $model = EchoSendParametersModel::fromArray($json);
         $this::assertSame('test', $model->getMessage());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class EchoSendParametersModelTest extends TestCase
         $model = EchoSendParametersModel::fromArray($json);
         $this::assertSame('test', $model->getMessage());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

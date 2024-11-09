@@ -21,8 +21,7 @@ class GetCountriesResponseModelTest extends TestCase
         $model = GetCountriesResponseModel::fromArray($json);
         $this::assertNull($model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -34,7 +33,6 @@ class GetCountriesResponseModelTest extends TestCase
         $model = GetCountriesResponseModel::fromArray($json);
         $this::assertContainsOnlyInstancesOf(CountryModel::class, $model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

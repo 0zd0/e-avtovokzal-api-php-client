@@ -21,8 +21,7 @@ class GetArrivalPointsParametersModelTest extends TestCase
         $this::assertSame(1, $model->getDispatchPointId());
         $this::assertNull($model->getPattern());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -35,7 +34,6 @@ class GetArrivalPointsParametersModelTest extends TestCase
         $this::assertSame(1, $model->getDispatchPointId());
         $this::assertSame('pattern', $model->getPattern());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

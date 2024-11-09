@@ -3,7 +3,6 @@
 namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Region;
 
 use Exception;
-use Onepix\EAvtovokzalApiClient\Model\Region\GetRegionsParametersModel;
 use Onepix\EAvtovokzalApiClient\Model\Region\GetRegionsResponseModel;
 use Onepix\EAvtovokzalApiClient\Model\Region\RegionModel;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
@@ -22,8 +21,7 @@ class GetRegionsResponseModelTest extends TestCase
         $model = GetRegionsResponseModel::fromArray($json);
         $this::assertNull($model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -35,7 +33,6 @@ class GetRegionsResponseModelTest extends TestCase
         $model = GetRegionsResponseModel::fromArray($json);
         $this::assertContainsOnlyInstancesOf(RegionModel::class, $model->getMultipleReturns());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

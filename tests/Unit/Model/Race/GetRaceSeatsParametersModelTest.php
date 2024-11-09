@@ -20,8 +20,7 @@ class GetRaceSeatsParametersModelTest extends TestCase
         $model = GetRaceSeatsParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class GetRaceSeatsParametersModelTest extends TestCase
         $model = GetRaceSeatsParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

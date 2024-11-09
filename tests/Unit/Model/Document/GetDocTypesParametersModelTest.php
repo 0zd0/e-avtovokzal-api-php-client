@@ -1,13 +1,13 @@
 <?php
 
-namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Race;
+namespace Onepix\EAvtovokzalApiClient\Test\Unit\Model\Document;
 
 use Exception;
-use Onepix\EAvtovokzalApiClient\Model\Race\GetRaceParametersModel;
+use Onepix\EAvtovokzalApiClient\Model\Document\GetDocTypesParametersModel;
 use Onepix\EAvtovokzalApiClient\Test\TestCase;
 use Onepix\EAvtovokzalApiClient\Test\Util\StubTrait;
 
-class GetRaceParametersModelTest extends TestCase
+class GetDocTypesParametersModelTest extends TestCase
 {
     use StubTrait;
 
@@ -16,8 +16,8 @@ class GetRaceParametersModelTest extends TestCase
      */
     public function testFromArrayMethodWithRequiredFields()
     {
-        $json  = $this::getStubJsonModelWithRequiredFields(GetRaceParametersModel::getClassName());
-        $model = GetRaceParametersModel::fromArray($json);
+        $json  = $this::getStubJsonModelWithRequiredFields(GetDocTypesParametersModel::getClassName());
+        $model = GetDocTypesParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
         $this::assertArraysAreEqual($json, $model->toArray());
@@ -28,8 +28,8 @@ class GetRaceParametersModelTest extends TestCase
      */
     public function testFromArrayMethodWithAllFields()
     {
-        $json  = $this::getStubJsonModelWithAllFields(GetRaceParametersModel::getClassName());
-        $model = GetRaceParametersModel::fromArray($json);
+        $json  = $this::getStubJsonModelWithAllFields(GetDocTypesParametersModel::getClassName());
+        $model = GetDocTypesParametersModel::fromArray($json);
         $this::assertSame('uid', $model->getUid());
 
         $this::assertArraysAreEqual($json, $model->toArray());

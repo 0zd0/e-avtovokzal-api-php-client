@@ -22,8 +22,7 @@ class RaceClassModelTest extends TestCase
         $this::assertSame(1, $model->getId());
         $this::assertNull($model->getName());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -36,7 +35,6 @@ class RaceClassModelTest extends TestCase
         $this::assertSame(1, $model->getId());
         $this::assertSame(RaceClassNameEnum::CLASS_REGULAR, $model->getName());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

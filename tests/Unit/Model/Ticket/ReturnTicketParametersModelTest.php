@@ -20,8 +20,7 @@ class ReturnTicketParametersModelTest extends TestCase
         $model = ReturnTicketParametersModel::fromArray($json);
         $this::assertSame(1, $model->getTicketId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -33,7 +32,6 @@ class ReturnTicketParametersModelTest extends TestCase
         $model = ReturnTicketParametersModel::fromArray($json);
         $this::assertSame(1, $model->getTicketId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

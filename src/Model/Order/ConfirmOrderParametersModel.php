@@ -107,7 +107,7 @@ class ConfirmOrderParametersModel extends AbstractModel
             self::ORDER_ID_KEY       => $this->getOrderId(),
             self::PAYMENT_METHOD_KEY => $this->getPaymentMethod(),
             self::OPTIONS_KEY        =>
-                $this->getOptions() ? array_map(fn($ticket) => $ticket->toArray(), $this->getOptions()) : null,
+                ! is_null($this->getOptions()) ? array_map(fn($option) => $option->toArray(), $this->getOptions()) : null,
         ], function ($value) {
             return $value !== null;
         });

@@ -1,0 +1,14 @@
+{
+    "all": {
+        "return": [
+            {
+                "benefitCode": "1",
+                "code": "code",
+                "name": "name",
+                "type": "TYPE_BIRTH_CERT"
+            }
+        ]
+    },
+    "required": {
+    }
+}

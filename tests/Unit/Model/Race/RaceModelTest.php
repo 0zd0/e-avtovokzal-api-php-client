@@ -49,8 +49,7 @@ class RaceModelTest extends TestCase
         $this::assertInstanceOf(RaceStatusModel::class, $model->getStatus());
         $this::assertSame(false, $model->getFromCache());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -87,7 +86,6 @@ class RaceModelTest extends TestCase
         $this::assertInstanceOf(RaceStatusModel::class, $model->getStatus());
         $this::assertSame(false, $model->getFromCache());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

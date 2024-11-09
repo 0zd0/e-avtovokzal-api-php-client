@@ -23,8 +23,7 @@ class TicketOptionModelTest extends TestCase
         $this::assertNull($model->getTicketCode());
         $this::assertNull($model->getTicketId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -39,7 +38,6 @@ class TicketOptionModelTest extends TestCase
         $this::assertSame('ticketCode', $model->getTicketCode());
         $this::assertSame(1, $model->getTicketId());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

@@ -22,8 +22,7 @@ class RaceStatusModelTest extends TestCase
         $this::assertSame(2, $model->getId());
         $this::assertNull($model->getName());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -36,7 +35,6 @@ class RaceStatusModelTest extends TestCase
         $this::assertSame(2, $model->getId());
         $this::assertSame(RaceStatusNameEnum::STATUS_CANCELED, $model->getName());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }

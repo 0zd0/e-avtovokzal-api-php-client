@@ -25,8 +25,7 @@ class CompanyModelTest extends TestCase
         $this::assertNull($model->getExtra());
         $this::assertNull($model->getCurrencyCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 
     /**
@@ -43,7 +42,6 @@ class CompanyModelTest extends TestCase
         $this::assertSame(3.01, $model->getExtra());
         $this::assertSame('currencyCode', $model->getCurrencyCode());
 
-        $toApi = $model->toArray();
-        $this::assertEqualsCanonicalizing(sort($toApi), sort($json));
+        $this::assertArraysAreEqual($json, $model->toArray());
     }
 }
