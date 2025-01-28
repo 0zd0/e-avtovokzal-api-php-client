@@ -1,6 +1,7 @@
 [api]
 login = '1111111'
 password = '22222'
+test = true
 
 [codes]
 ru_id = 643

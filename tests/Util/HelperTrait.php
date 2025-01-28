@@ -57,6 +57,6 @@ trait HelperTrait
             $this->devConfig['api']['login'],
             $this->devConfig['api']['password'],
         );
-        $this->api->setTest(true);
+        $this->api->setTest($this->devConfig['api']['test']);
     }
 }

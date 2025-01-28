@@ -11,22 +11,22 @@ class ReturnTicketParametersModel extends AbstractModel
 
     public const TICKET_ID_KEY = 'ticketId';
 
-    protected int $ticketId;
+    protected int|string $ticketId;
 
     /**
-     * @return int
+     * @return int|string
      */
-    public function getTicketId(): int
+    public function getTicketId(): int|string
     {
         return $this->ticketId;
     }
 
     /**
-     * @param int $ticketId
+     * @param int|string $ticketId
      *
      * @return self
      */
-    public function setTicketId(int $ticketId): self
+    public function setTicketId(int|string $ticketId): self
     {
         $this->ticketId = $ticketId;
 
